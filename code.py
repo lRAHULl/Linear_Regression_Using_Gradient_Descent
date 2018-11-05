@@ -67,5 +67,5 @@ def main():
 
 
 if __name__ == "__main__": # This is used to call the imported packages,it saves the memory.
-    main()
-    # predict_y(59.813207869512318) # original_y: 87.230925133687393,predicted_y: 88.48279754569299
+    # main()
+    predict_y(59.813207869512318) # original_y: 87.230925133687393,predicted_y: 88.48279754569299
