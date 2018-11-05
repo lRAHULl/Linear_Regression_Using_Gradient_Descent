@@ -3,11 +3,14 @@ from numpy import *
 
 def cost(b, m, data_points):
     r_squared = 0
+
+    # predicted Y^ = (mX + b)
+    # Mean-Squared-Error = 1/N(sum_for_N_Samples_of(y - y^)^2)
     for i in range(len(data_points)):
         X = data_points[i, 0]
         y = data_points[i, 1]
         r_squared += (y - (m * X + b)) ** 2
-    return r_squared / (2 * float(len(data_points)))
+    return r_squared / (float(len(data_points)))
 
 
 def gradient_step(b, m, data_points, alpha):
@@ -17,8 +20,8 @@ def gradient_step(b, m, data_points, alpha):
     for i in range(len(data_points)):
         X = data_points[i, 0]
         y = data_points[i, 1]
-        b_grad += -(1/N) * (y - ((m * X) + b))
-        m_grad += -(1/N) * X * (y - ((m * X) + b))
+        b_grad += -(2/N) * (y - ((m * X) + b))
+        m_grad += -(2/N) * X * (y - ((m * X) + b))
     new_b = b - (alpha * b_grad)
     new_m = m - (alpha * m_grad)
     return [new_b, new_m]
@@ -30,6 +33,12 @@ def batch_gradient_descent(data_points, initial_b, initial_m, alpha, iterations)
     for i in range(iterations):
         b, m = gradient_step(b, m, array(data_points), alpha)
     return [b, m]
+
+
+def predict_y(X):
+    b, m = main()
+    y_pred = m * X + b
+    print(f"The regressor prediction for input 'X' = {X} is 'y' = {y_pred}")
 
 
 def main():
@@ -54,6 +63,9 @@ def main():
     print(
         f"After performing Gradient Descent for {iterations} iterations we got: 'y-intercept' = {b}, 'slope' = {m}, 'cost' = {end_cost}")
 
+    return b, m
+
 
 if __name__ == "__main__":
     main()
+    # predict_y(59.813207869512318)
