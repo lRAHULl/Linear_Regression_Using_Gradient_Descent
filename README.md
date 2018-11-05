@@ -11,6 +11,10 @@ This project is done using pure Python and NumPy
 
 Clone or Download the project
 
+```
+git clone https://github.com/Rahulreigns016/Linear_Regression_Using_Gradient_Descent.git
+```
+
 Open Terminal or Cmd Prompt and cd into the project
 
 ```
