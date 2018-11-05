@@ -5,12 +5,12 @@ def cost(b, m, data_points):
     r_squared = 0
 
     # predicted Y^ = (mX + b)
-    # Mean-Squared-Error = 1/N(sum_for_N_Samples_of(y - y^)^2)
+    # Mean-Squared-Error = 1/2N(sum_for_N_Samples_of(y - y^)^2)
     for i in range(len(data_points)):
         X = data_points[i, 0]
         y = data_points[i, 1]
         r_squared += (y - (m * X + b)) ** 2
-    return r_squared / (float(len(data_points)))
+    return r_squared / (2 * float(len(data_points)))
 
 
 def gradient_step(b, m, data_points, alpha):
@@ -20,8 +20,8 @@ def gradient_step(b, m, data_points, alpha):
     for i in range(len(data_points)):
         X = data_points[i, 0]
         y = data_points[i, 1]
-        b_grad += -(2/N) * (y - ((m * X) + b))
-        m_grad += -(2/N) * X * (y - ((m * X) + b))
+        b_grad += -(1/N) * (y - ((m * X) + b))
+        m_grad += -(1/N) * X * (y - ((m * X) + b))
     new_b = b - (alpha * b_grad)
     new_m = m - (alpha * m_grad)
     return [new_b, new_m]
