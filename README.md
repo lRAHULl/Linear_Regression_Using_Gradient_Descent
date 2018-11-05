@@ -2,12 +2,12 @@
 
 This project is done using pure Python and NumPy
 
-# Libraries
+## Libraries
 
 - NumPy
 - Good Old Python(3.6+)
 
-# Run the Project as specified
+## Run the Project as specified
 
 Clone or Download the project
 
