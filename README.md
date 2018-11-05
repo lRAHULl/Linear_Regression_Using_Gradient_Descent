@@ -7,7 +7,7 @@ This project is done using pure Python and NumPy
 - NumPy
 - Good Old Python(3.6+)
 
-### Run the Project as specified
+## Run the Project as specified
 
 Clone or Download the project
 
@@ -27,6 +27,6 @@ Run the following Command
 python code.py
 ```
 
-### Sample Output
+## Sample Output
 
 <img src="img/shot1.jpg" alt="output">
